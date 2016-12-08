@@ -179,7 +179,7 @@ private:
     /**
      * @brief noOfObjects
      */
-    unsigned long noOfObjects = 55;
+    unsigned long noOfObjects = 4;
     /**
      * @brief mGeometry
      */

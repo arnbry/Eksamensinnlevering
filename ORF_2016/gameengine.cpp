@@ -103,7 +103,7 @@ void GameEngine::init()
         for (unsigned long noOfCubesZ = 0; noOfCubesZ < squareRoot; noOfCubesZ++)
         {
 
-            tempGeometry = new Cube((-17.5f+noOfCubesX*5.0f), (20.0f+noOfCubesZ*5.0f), 0.0f);
+            tempGeometry = new Cube((20.0f+noOfCubesZ*5.0f) , 0.0f, (-20.5f+noOfCubesX*6.0f));
             tempGeometry->setMaterial(mMaterials[0]);
             mGeometry.push_back(tempGeometry);
          //   tempGeometry->setScript(":/monkey.js");
