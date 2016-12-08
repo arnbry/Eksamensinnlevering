@@ -164,6 +164,7 @@ void GameEngine::init()
     //manually loads a mesh
     Player = new Mesh(8.0f);
     Player->setMeshName((Orf::filePath + "suzanne.obj.txt"));
+    Player->update();
     Player->initGeometry();
     Player->mTransform->setScale(2.0f, 2.0f, 2.0f);
     Player->mTransform->setRotation(0.0f, 0.0f, 0.0f);

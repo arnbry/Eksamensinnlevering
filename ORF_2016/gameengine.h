@@ -24,6 +24,7 @@
 #include "vector3.h"
 #include "SoundManager.h"
 #include "SoundSource.h"
+#include "updateplayer.h"
 
 /**
  * @brief The GameEngine class

@@ -4,10 +4,11 @@
 #include "gameobject.h"
 #include "vertexdata.h"
 #include "material.h"
+#include "updateplayer.h"
 /**
 * @brief The Mesh class
 */
-class Mesh : public GameObject
+class Mesh : public GameObject, updateplayer
 {
 public:
 /**
