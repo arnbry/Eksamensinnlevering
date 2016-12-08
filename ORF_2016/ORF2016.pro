@@ -81,7 +81,8 @@ HEADERS += \
     vertexdata.h \
     scenenode.h \
     scenemanager.h \
-    updateplayer.h
+    updateplayer.h \
+    vec3.h
 
 RESOURCES += \
     shaders.qrc \
