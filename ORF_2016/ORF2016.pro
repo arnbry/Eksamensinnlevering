@@ -52,7 +52,8 @@ SOURCES += main.cpp \
     transform.cpp \
     vertexdata.cpp \
     scenenode.cpp \
-    scenemanager.cpp
+    scenemanager.cpp \
+    updateplayer.cpp
 
 HEADERS += \
     camera.h \
@@ -79,7 +80,8 @@ HEADERS += \
     transform.h \
     vertexdata.h \
     scenenode.h \
-    scenemanager.h
+    scenemanager.h \
+    updateplayer.h
 
 RESOURCES += \
     shaders.qrc \
