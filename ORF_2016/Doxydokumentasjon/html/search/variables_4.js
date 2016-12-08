@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['m_5fambientcoloruniform',['m_ambientColorUniform',['../class_point_light.html#a23fa4145fb4befdc69bbc9a2b02aca1f',1,'PointLight']]],
+  ['m_5fdiffusecoloruniform',['m_diffuseColorUniform',['../class_point_light.html#ad8f859b0b1d9565028ee5c96c304815a',1,'PointLight']]],
+  ['m_5flightposuniform',['m_lightPosUniform',['../class_point_light.html#ae5f85cc666e9205d11b53b7e362d7f6e',1,'PointLight']]],
+  ['m_5fspecularcoloruniform',['m_specularColorUniform',['../class_point_light.html#ab6f7f748d82c189af1e5a65285496710',1,'PointLight']]],
+  ['maspectratio',['mAspectRatio',['../class_camera.html#a1f1c327483d77852182e79c699e3e687',1,'Camera']]],
+  ['mbackgroundcolor',['mBackgroundColor',['../class_camera.html#abc2ac45664455c7fa9dd750a50775d10',1,'Camera']]],
+  ['mfarplane',['mFarPlane',['../class_camera.html#a9c8dc48fb38b3512e1636cefc983715a',1,'Camera']]],
+  ['mfieldofview',['mFieldOfView',['../class_camera.html#a44b1a2b5e9a57b34e851ec65091a386a',1,'Camera']]],
+  ['mheight',['mHeight',['../class_camera.html#a36ede364611a4440514f033d3033fb1f',1,'Camera']]],
+  ['mmodelmatrix',['mModelMatrix',['../class_point_light.html#aa1c1908e771682b3d1bf340c94b3f716',1,'PointLight']]],
+  ['mnearplane',['mNearPlane',['../class_camera.html#abb0faed21056b2a7bca13285ae674382',1,'Camera']]],
+  ['mperspective',['mPerspective',['../class_camera.html#aea9cb07f6b38bdd57c26492db28546f4',1,'Camera']]],
+  ['mposition',['mPosition',['../struct_transform.html#ae76a796553974f2ac8ae12373c2fc5cf',1,'Transform']]],
+  ['mrotation',['mRotation',['../struct_transform.html#a5cf54f9615185b40b12d417d0c1e77e5',1,'Transform']]],
+  ['mscale',['mScale',['../struct_transform.html#a124b880a9ed44c4b57cb5401465d882d',1,'Transform']]],
+  ['mtransform',['mTransform',['../class_camera.html#aff7e7e634db5d3fcc76ba17a0ad5f6d2',1,'Camera::mTransform()'],['../class_game_object.html#aa3ad146f4a29864e8f43846753f6c730',1,'GameObject::mTransform()']]],
+  ['mviewmatrix',['mViewMatrix',['../class_camera.html#a5bb1a1718da44318ae5128ecd9b1cec8',1,'Camera']]],
+  ['mwidth',['mWidth',['../class_camera.html#ac8504b9de7e47f1f1abae90ab6357538',1,'Camera']]]
+];

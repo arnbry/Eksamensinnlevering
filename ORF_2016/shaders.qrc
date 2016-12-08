@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>FlatTextureF.glsl</file>
+        <file>FlatTextureV.glsl</file>
+        <file>FlatColorF.glsl</file>
+        <file>FlatColorV.glsl</file>
+        <file>LightF.glsl</file>
+        <file>LightV.glsl</file>
+    </qresource>
+</RCC>

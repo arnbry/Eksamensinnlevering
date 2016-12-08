@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>camera.js</file>
+        <file>monkey.js</file>
+    </qresource>
+</RCC>

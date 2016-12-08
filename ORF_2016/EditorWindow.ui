@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EditorWindow</class>
+ <widget class="QMainWindow" name="EditorWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1104</width>
+    <height>771</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>The ORF!</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="ButtonRow" stretch="0">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetNoConstraint</enum>
+        </property>
+        <item>
+         <widget class="QPushButton" name="AxesButton">
+          <property name="text">
+           <string>Axis On/Off</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="WireframeButton">
+          <property name="text">
+           <string>Solid mesh / wireframe</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="PerspectiveButton">
+          <property name="text">
+           <string>Orthographic</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="ColorButton">
+          <property name="text">
+           <string>Set background color</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="OpenGLLayout">
+      <item>
+       <widget class="GameEngine" name="RenderWindow">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>100</horstretch>
+          <verstretch>100</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::TabFocus</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="Infobox">
+      <property name="text">
+       <string>Drag mouse to rotate camera. Arrows to move camera. IJKL to rotate camera.</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1104</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionLoad_Mesh"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionLoad_Mesh">
+   <property name="text">
+    <string>Load Mesh</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>GameEngine</class>
+   <extends>QOpenGLWidget</extends>
+   <header>gameengine.h</header>
+   <slots>
+    <slot>axisOnOff()</slot>
+    <slot>loadMesh()</slot>
+    <slot>wireFrameOnOff()</slot>
+    <slot>setCameraColor()</slot>
+    <slot>orthographicOnOff()</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>RenderWindow</tabstop>
+  <tabstop>AxesButton</tabstop>
+  <tabstop>WireframeButton</tabstop>
+  <tabstop>ColorButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>AxesButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>RenderWindow</receiver>
+   <slot>axisOnOff()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>230</x>
+     <y>49</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>249</x>
+     <y>152</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionLoad_Mesh</sender>
+   <signal>triggered()</signal>
+   <receiver>RenderWindow</receiver>
+   <slot>loadMesh()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>551</x>
+     <y>394</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>WireframeButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>RenderWindow</receiver>
+   <slot>wireFrameOnOff()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>540</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>535</x>
+     <y>92</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PerspectiveButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>RenderWindow</receiver>
+   <slot>orthographicOnOff()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>688</x>
+     <y>45</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>688</x>
+     <y>86</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
