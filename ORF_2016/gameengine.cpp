@@ -75,6 +75,21 @@ void GameEngine::init()
     glEnable(GL_CULL_FACE);
 
     initMaterials();
+    if(decam)
+    {
+
+    mDebugCamera = new Camera();
+    mDebugCamera->mTransform->setPosition(-3.0f, -2.0f, -20.0f);
+    mDebugCamera->setBackgroundColor(0.4f, 0.4f, 0.4f, 1.0f);
+
+    glClearColor(mDebugCamera->mBackgroundColor.x(),
+                 mDebugCamera->mBackgroundColor.y(),
+                 mDebugCamera->mBackgroundColor.z(),
+                 mDebugCamera->mBackgroundColor.w());
+    }
+    if(maincam)
+    {
+
 
     mCamera = new Camera();
     mCamera->mTransform->setPosition(-3.0f, -2.0f, -20.0f);
@@ -84,6 +99,7 @@ void GameEngine::init()
                  mCamera->mBackgroundColor.y(),
                  mCamera->mBackgroundColor.z(),
                  mCamera->mBackgroundColor.w());
+    }
 
 
 
@@ -164,7 +180,7 @@ void GameEngine::init()
     //manually loads a mesh
     Player = new Mesh(8.0f);
     Player->setMeshName((Orf::filePath + "suzanne.obj.txt"));
-    Player->update();
+    //Player->update();
     Player->initGeometry();
     Player->mTransform->setScale(2.0f, 2.0f, 2.0f);
     Player->mTransform->setRotation(0.0f, 0.0f, 0.0f);
@@ -221,6 +237,27 @@ void GameEngine::setCameraColor()
     }
 }
 
+void GameEngine::setDebugCameraColor()
+{
+    QColor color = QColor(static_cast<int>(mDebugCamera->mBackgroundColor.x()*255),
+                          static_cast<int>(mDebugCamera->mBackgroundColor.y()*255),
+                          static_cast<int>(mDebugCamera->mBackgroundColor.z()*255),
+                          static_cast<int>(mDebugCamera->mBackgroundColor.w()*255));
+
+    QString title = QString("Select Background color");
+    color = QColorDialog::getColor(color, this, title);
+
+    if (color.isValid())
+    {
+        mDebugCamera->setBackgroundColor(color.redF(), color.greenF(), color.blueF(), color.alphaF());
+
+        glClearColor(mDebugCamera->mBackgroundColor.x(),
+                     mDebugCamera->mBackgroundColor.y(),
+                     mDebugCamera->mBackgroundColor.z(),
+                     mDebugCamera->mBackgroundColor.w());
+    }
+}
+
 void GameEngine::initMaterials()
 {
     //Makes 4 default materials
@@ -268,6 +305,12 @@ void GameEngine::cleanup()
         mCamera = nullptr;
         //        qDebug() << "Camera deleted";
     }
+    if(mDebugCamera)
+    {
+        delete mDebugCamera;
+        mDebugCamera = nullptr;
+        //        qDebug() << "mDebugCamera deleted";
+    }
 }
 
 void GameEngine::mousePressEvent(QMouseEvent *event)
@@ -304,8 +347,8 @@ void GameEngine::mouseMoveEvent(QMouseEvent *event)
     }
 
     //qDebug() << "dX: "<< mouseXlast << ", dY: "<< mouseYlast;
-    mCamera->rotate(cameraSpeed*mouseXlast, QVector3D(0.0,1.0,0.0));
-    mCamera->rotate(cameraSpeed*mouseYlast, QVector3D(1.0,0.0,0.0));
+    mDebugCamera->rotate(cameraSpeed*mouseXlast, QVector3D(0.0,1.0,0.0));
+    mDebugCamera->rotate(cameraSpeed*mouseYlast, QVector3D(1.0,0.0,0.0));
 
     mouseXlast = event->pos().x();
     mouseYlast = event->pos().y();
@@ -333,25 +376,40 @@ void GameEngine::keyReleaseEvent(QKeyEvent *event)
 void GameEngine::handleKeys()
 {
 
+    if(input->keyHold(Qt::Key_1))
+    {
+        maincam = true;
+        decam = false;
+
+    }
+    if(input->keyHold(Qt::Key_2))
+    {
+        decam = true;
+        maincam = false;
+
+    }
+
+
+
     if(input->keyHold(Qt::Key_J))
     {
 
 
 
 
-        mCamera->translate(0.2f, 0.0, 0.0);
+        mDebugCamera->translate(0.2f, 0.0, 0.0);
     }
     if(input->keyHold(Qt::Key_L))
     {
-         mCamera->translate(-0.2f, 0.0, 0.0);
+         mDebugCamera->translate(-0.2f, 0.0, 0.0);
     }
     if(input->keyHold(Qt::Key_I))
     {
-        mCamera->translate(0.0, 0.0, 0.2f);
+        mDebugCamera->translate(0.0, 0.0, 0.2f);
     }
     if(input->keyHold(Qt::Key_K))
     {
-         mCamera->translate(0.0, 0.0, -0.2f);
+         mDebugCamera->translate(0.0, 0.0, -0.2f);
     }
     if(input->keyHold(Qt::Key_A))
     {
@@ -483,6 +541,7 @@ void GameEngine::resizeGL(int w, int h)
     //    qDebug() << "Retina " << retinaScale;
 
     mCamera->setAspectRatio(w, h);
+
 }
 
 void GameEngine::paintGL()

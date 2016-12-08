@@ -96,6 +96,7 @@ public slots:
      * @brief setCameraColor
      */
     void setCameraColor();
+    void setDebugCameraColor();
     /**
      * @brief orthographicOnOff
      */
@@ -168,6 +169,7 @@ private:
      * @brief mCamera
      */
     Camera *mCamera;
+    Camera *mDebugCamera;
     /**
      * @brief viewMatrix
      */
@@ -259,6 +261,9 @@ private:
      * @brief ortho
      */
     bool ortho = false;
+
+    bool maincam = true;
+    bool decam = false;
 
 
 

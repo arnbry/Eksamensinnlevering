@@ -8,7 +8,7 @@
 /**
 * @brief The Mesh class
 */
-class Mesh : public GameObject, updateplayer
+class Mesh : public GameObject
 {
 public:
 /**

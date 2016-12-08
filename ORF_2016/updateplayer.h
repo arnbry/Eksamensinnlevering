@@ -6,7 +6,7 @@
 #include "gameobject.h"
 
 
-class updateplayer : public Mesh
+class updateplayer
 {
 private:
     float m_radius;
