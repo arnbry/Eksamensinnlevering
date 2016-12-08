@@ -155,14 +155,14 @@ void GameEngine::init()
     //does not work now, and would cause rotations with camera
 
     //manually loads a mesh
-    loadedMesh = new Mesh(8.0f);
-    loadedMesh->setMeshName((Orf::filePath + "suzanne.obj.txt"));
-    loadedMesh->initGeometry();
-    loadedMesh->mTransform->setScale(2.0f, 2.0f, 2.0f);
-    loadedMesh->mTransform->setRotation(0.0f, 0.0f, 0.0f);
-    loadedMesh->setMaterial(mMaterials[0]);
-    mGeometry.push_back(loadedMesh);
-    loadedMesh->setParent(mCamera);
+    Player = new Mesh(8.0f);
+    Player->setMeshName((Orf::filePath + "suzanne.obj.txt"));
+    Player->initGeometry();
+    Player->mTransform->setScale(2.0f, 2.0f, 2.0f);
+    Player->mTransform->setRotation(0.0f, 0.0f, 0.0f);
+    Player->setMaterial(mMaterials[0]);
+    mGeometry.push_back(Player);
+    Player->setParent(mCamera);
 
 
 
@@ -325,42 +325,61 @@ void GameEngine::keyReleaseEvent(QKeyEvent *event)
 void GameEngine::handleKeys()
 {
 
-    if(input->keyHold(Qt::Key_Left))
-    {
+//    if(input->keyHold(Qt::Key_Left))
+//    {
 
 
 
 
-        mCamera->translate(0.2f, 0.0, 0.0);
-    }
-    if(input->keyHold(Qt::Key_Right))
+//        mCamera->translate(0.2f, 0.0, 0.0);
+//    }
+//    if(input->keyHold(Qt::Key_Right))
+//    {
+//         mCamera->translate(-0.2f, 0.0, 0.0);
+//    }
+//    if(input->keyHold(Qt::Key_Up))
+//    {
+//        mCamera->translate(0.0, 0.0, 0.2f);
+//    }
+//    if(input->keyHold(Qt::Key_Down))
+//    {
+//         mCamera->translate(0.0, 0.0, -0.2f);
+//    }
+    if(input->keyHold(Qt::Key_A))
     {
-         mCamera->translate(-0.2f, 0.0, 0.0);
-    }
-    if(input->keyHold(Qt::Key_Up))
-    {
-        mCamera->translate(0.0, 0.0, 0.2f);
-    }
-    if(input->keyHold(Qt::Key_Down))
-    {
-         mCamera->translate(0.0, 0.0, -0.2f);
+        Player->translate(-0.5f, 0.0, 0.0);
+
     }
     if(input->keyHold(Qt::Key_A))
     {
-        loadedMesh->translate(-0.5f, 0.0, 0.0);
+        mCamera->translate(0.5f, 0.0, 0.0);
+
     }
     if(input->keyHold(Qt::Key_D))
     {
-        loadedMesh->translate(0.5f, 0.0, 0.0);
+        Player->translate(0.5f, 0.0, 0.0);
+
+    }
+    if(input->keyHold(Qt::Key_D))
+    {
+        mCamera->translate(-0.5f, 0.0, 0.0);
 
     }
     if(input->keyHold(Qt::Key_S))
     {
-        loadedMesh->translate(0.0, 0.0f, 0.5);
+        Player->translate(0.0, 0.0f, 0.5);
+    }
+    if(input->keyHold(Qt::Key_S))
+    {
+        mCamera->translate(0.0, 0.0f, -0.5);
     }
     if(input->keyHold(Qt::Key_W))
     {
-        loadedMesh->translate(0.0, 0.0f, -0.5);
+        Player->translate(0.0, 0.0f, -0.5);
+    }
+    if(input->keyHold(Qt::Key_W))
+    {
+        mCamera->translate(0.0, 0.0f, 0.5);
     }
 
     if(input->keyDown(Qt::Key_Space))

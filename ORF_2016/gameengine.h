@@ -199,7 +199,7 @@ private:
     /**
      * @brief loadedMesh
      */
-    Mesh *loadedMesh;
+    Mesh *Player;
     /**
      * @brief MonkeyScript
      */
