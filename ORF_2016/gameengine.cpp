@@ -162,7 +162,7 @@ void GameEngine::init()
     loadedMesh->mTransform->setRotation(0.0f, 0.0f, 0.0f);
     loadedMesh->setMaterial(mMaterials[0]);
     mGeometry.push_back(loadedMesh);
-   // loadedMesh->setParent(mCamera);
+    loadedMesh->setParent(mCamera);
 
 
 
@@ -265,6 +265,7 @@ void GameEngine::cleanup()
 void GameEngine::mousePressEvent(QMouseEvent *event)
 {
     input->mousePressUpdate(event);
+
 }
 
 void GameEngine::mouseReleaseEvent(QMouseEvent *event)
@@ -317,6 +318,7 @@ void GameEngine::keyReleaseEvent(QKeyEvent *event)
     if (!event->isAutoRepeat())
         {
             input->keyReleaseUpdate(event);
+
         }
 }
 
@@ -350,6 +352,7 @@ void GameEngine::handleKeys()
     if(input->keyHold(Qt::Key_D))
     {
         loadedMesh->translate(0.5f, 0.0, 0.0);
+
     }
     if(input->keyHold(Qt::Key_S))
     {
