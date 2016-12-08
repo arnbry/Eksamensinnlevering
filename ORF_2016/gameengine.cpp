@@ -33,29 +33,29 @@ void GameEngine::init()
 
 
         //loads the sounds
-        mExplosionSound = SoundManager::getInstance()->createSource(
-                    "Explosion", QVector3D(-10.0f, 0.0f, 0.0f),
-                    "bentzexplosion.wav", false, 1.0f);
-        mLaserSound = SoundManager::getInstance()->createSource(
-                    "Laser", QVector3D(20.0f, 0.0f, 0.0f),
-                    "laser.wav", false, 1.0f);
+//        mExplosionSound = SoundManager::getInstance()->createSource(
+//                    "Explosion", QVector3D(-10.0f, 0.0f, 0.0f),
+//                    "bentzexplosion.wav", false, 1.0f);
+//        mLaserSound = SoundManager::getInstance()->createSource(
+//                    "Laser", QVector3D(20.0f, 0.0f, 0.0f),
+//                    "laser.wav", false, 1.0f);
 
-        mStereoSound = SoundManager::getInstance()->createSource(
-                    "Stereo", QVector3D(0.0f, 0.0f, 0.0f),
-                    "happyhappy.wav", false, 1.0f);
+//        mStereoSound = SoundManager::getInstance()->createSource(
+//                    "Stereo", QVector3D(0.0f, 0.0f, 0.0f),
+//                    "happyhappy.wav", false, 1.0f);
 
 
 
         //placing the listener:
-        QVector3D pos(0.0f, 0.0f, 1.0f);
-        QVector3D vel(0.0f, 0.0f, 0.0f);
-        QVector3D dir(0.0f, 0.0f, -1.0f);
-        QVector3D up(0.0f, 1.0f, 0.0f);
+//        QVector3D pos(0.0f, 0.0f, 1.0f);
+//        QVector3D vel(0.0f, 0.0f, 0.0f);
+//        QVector3D dir(0.0f, 0.0f, -1.0f);
+//        QVector3D up(0.0f, 1.0f, 0.0f);
 
         //set the listener position
-       SoundManager::getInstance()->updateListener(pos, vel, dir, up);
+//       SoundManager::getInstance()->updateListener(pos, vel, dir, up);
 
-       mStereoSound->play();
+      // mStereoSound->play();
 
         //vector for source placement
        // Vector3 sourceVec3;
@@ -103,10 +103,10 @@ void GameEngine::init()
         for (unsigned long noOfCubesZ = 0; noOfCubesZ < squareRoot; noOfCubesZ++)
         {
 
-//            tempGeometry = new Cube((-17.5f+noOfCubesX*5.0f), (20.0f+noOfCubesZ*5.0f), 0.0f);
-//            tempGeometry->setMaterial(mMaterials[0]);
-//            mGeometry.push_back(tempGeometry);
-            //tempGeometry->setScript(":/monkey.js");
+            tempGeometry = new Cube((-17.5f+noOfCubesX*5.0f), (20.0f+noOfCubesZ*5.0f), 0.0f);
+            tempGeometry->setMaterial(mMaterials[0]);
+            mGeometry.push_back(tempGeometry);
+         //   tempGeometry->setScript(":/monkey.js");
 
         }
     }
@@ -332,26 +332,26 @@ void GameEngine::keyReleaseEvent(QKeyEvent *event)
 void GameEngine::handleKeys()
 {
 
-//    if(input->keyHold(Qt::Key_Left))
-//    {
+    if(input->keyHold(Qt::Key_J))
+    {
 
 
 
 
-//        mCamera->translate(0.2f, 0.0, 0.0);
-//    }
-//    if(input->keyHold(Qt::Key_Right))
-//    {
-//         mCamera->translate(-0.2f, 0.0, 0.0);
-//    }
-//    if(input->keyHold(Qt::Key_Up))
-//    {
-//        mCamera->translate(0.0, 0.0, 0.2f);
-//    }
-//    if(input->keyHold(Qt::Key_Down))
-//    {
-//         mCamera->translate(0.0, 0.0, -0.2f);
-//    }
+        mCamera->translate(0.2f, 0.0, 0.0);
+    }
+    if(input->keyHold(Qt::Key_L))
+    {
+         mCamera->translate(-0.2f, 0.0, 0.0);
+    }
+    if(input->keyHold(Qt::Key_I))
+    {
+        mCamera->translate(0.0, 0.0, 0.2f);
+    }
+    if(input->keyHold(Qt::Key_K))
+    {
+         mCamera->translate(0.0, 0.0, -0.2f);
+    }
     if(input->keyHold(Qt::Key_A))
     {
         Player->translate(-0.5f, 0.0, 0.0);
@@ -449,6 +449,14 @@ void GameEngine::timerEvent(QTimerEvent *e)
     input->cleanKeypresses();
 
 
+//if(Player->mTransform->getPosition()>= bakke->mTransform->getPosition())
+//{
+//}
+
+
+
+
+
 
     update();
 
@@ -500,6 +508,8 @@ void GameEngine::paintGL()
 
     //set position of skybox to that of camera
     skybox->mTransform->setPosition(mCamera->mTransform->getPosition());
+
+
 
 
     //Draw all geometry in mGeometry vector:
