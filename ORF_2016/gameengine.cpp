@@ -85,6 +85,13 @@ void GameEngine::init()
                  mCamera->mBackgroundColor.z(),
                  mCamera->mBackgroundColor.w());
 
+
+
+    bakke = new Cube(0.0,-5.5,0.0);
+            bakke->setMaterial(mMaterials[0]);
+            bakke->scale(80.0, 0.5, 80.0);
+            mGeometry.push_back(bakke);
+
     //Quick hack to make lots of cubes:
 
 

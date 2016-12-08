@@ -270,6 +270,8 @@ private:
 
     Cube*tempobj;
 
+    Cube*bakke; //bakke eksamen
+
 
 };
 
